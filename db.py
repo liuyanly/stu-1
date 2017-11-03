@@ -32,6 +32,7 @@ with conn as cur:
 		    for i,k in enumerate(fields):
 			user[k] = row[i]
 		    users.append(user)
+		logutil.writelog('sys').info("user: %s" % (user))
 		return users
 	    except:
 		logutil.writelog('db').error("Exec: %s,Error: %s"% (sql,traceback.format_exc()))
