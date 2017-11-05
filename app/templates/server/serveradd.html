@@ -135,6 +135,20 @@ $('#cabinet_id').multiselect({
             })
 $('#cabinet_id').multiselect('refresh')
 })
+	
+var idc_str = ''
+$.getJSON('/cabinet_msg/',function(data){
+    cabinets = data['result']
+    for(var i=0;i<cabinets.length;i++){
+	idc_str += '<option value="'+cabinets[i]['id']+'">'+cabinets[i]['name']+'</option>'
+	$('#cabinet_id').html(idc_str)
+    }
+$('#idc_name').multiselect({
+            placeholder: "请选择",
+            enableCaseInsensitiveFiltering: true
+            })
+$('#idc_name').multiselect('refresh')
+})
 
 </script>
 {% endblock %}
