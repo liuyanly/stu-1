@@ -24,6 +24,7 @@
 <!--plugins-->
 <script src="/static/js/bootstrap.min.js"></script>
 <script src="/static/pulgin/layer-v2.4/layer/layer.js"></script>
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 
 <!--datatables plugins-->
 <script type="text/javascript" src="/static/pulgin/datatables/dataTables.min.js"></script>
@@ -41,7 +42,17 @@
 <script type="text/javascript" src="/static/js/passwordStrength-min.js"></script>
 <link rel="stylesheet" href="/static/css/jquery-ui.css" type="text/css"/>
 <link rel="stylesheet" href="/static/css/passwordStrength.css" type="text/css"/>
-
+<script type="text/javascript">
+var navstation = $.cookie("navstation");
+if(navstation != null){
+    $("#side-menu li").each(function(){
+        if($(this).html() == navstation){
+            $(this).parent().css("display","block");
+            $(this).addClass("active");
+        }
+    });
+}
+</script>
 </head>
 <!--整个页面的框架-->
 <div id="wrapper">
@@ -177,6 +188,11 @@ $('#jjob').click(function(){
 $('#jcode').click(function(){
     $("#jcode").children("ul").toggleClass("collapse");   
 })
+$(function(){
+    $("#side-menu li").click(function(){
+        $.cookie("navstation", $(this).html(), { path: "/" });
+    });
+});
 </script>
 
 <!--右边的整体-->
