@@ -235,3 +235,29 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2016-11-24 16:33:21
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for netdevice
+-- ----------------------------
+DROP TABLE IF EXISTS `netdevice`;
+CREATE TABLE `netdevice` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idc_name` varchar(20) NOT NULL,
+  `cabinet_name` varchar(10) NOT NULL,
+  `netdevice_name` varchar(20) NOT NULL,
+  `brand` varchar(20) NOT NULL,
+  `model` varchar(50) NOT NULL,
+  `memory` varchar(50) NOT NULL,
+  `role` varchar(10) NOT NULL,
+  `manage_ip` varchar(20) DEFAULT NULL,
+  `alternate_ip` varchar(20) DEFAULT NULL,
+  `adminer` varchar(20) DEFAULT NULL,
+  `phone` varchar(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `netdevice_name` (`netdevice_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
