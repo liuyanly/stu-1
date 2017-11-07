@@ -252,6 +252,7 @@ CREATE TABLE `netdevice` (
   `brand` varchar(20) NOT NULL,
   `model` varchar(50) NOT NULL,
   `memory` varchar(50) NOT NULL,
+  `sn_num` varchar(50) NOT NULL,
   `role` varchar(10) NOT NULL,
   `manage_ip` varchar(20) DEFAULT NULL,
   `alternate_ip` varchar(20) DEFAULT NULL,
